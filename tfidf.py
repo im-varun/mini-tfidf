@@ -10,8 +10,8 @@ def num_documents_containing(word, documents):
 def idf(word, documents):
     return math.log((1 + len(documents)) / (1 + num_documents_containing(word, documents)))
 
-def tf_idf_score(word, document, documents_list):
-    return (tf(word, document) * idf(word, documents_list))
+def tf_idf(word, document, documents):
+    return (tf(word, document) * idf(word, documents))
 
 if __name__ == "__main__":
     document1 = TextBlob(
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     for i, document in enumerate(documents):
         print(f'Top words in document {i + 1}')
         
-        word_scores = {word: tf_idf_score(word, document, documents) for word in document.words}
+        word_scores = {word: tf_idf(word, document, documents) for word in document.words}
         sorted_word_scores = sorted(word_scores.items(), key=lambda x: x[1], reverse=True)
 
         for word, score in sorted_word_scores[:2]:
