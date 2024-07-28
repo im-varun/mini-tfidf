@@ -36,4 +36,4 @@ Wikipedia contributors. (2024, July 26). Tf–idf. In Wikipedia, The Free Encycl
 
 # Disclaimer
 
-This project is for educational purposes only. The from-scratch implementation of TF-IDF measure may not be completely accurate or optimized. It is intended as a learning exercise to understand the underlying concepts of famous methodologies and algorithms.
+This project is for educational purposes only. The from-scratch implementation of TF-IDF measure may not be completely accurate or optimized. It is intended as a learning exercise to understand the underlying concepts of famous methodologies and algorithms in the field of Computer Science.
