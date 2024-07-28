@@ -1,22 +1,11 @@
 import math
-
-def get_document_tokens(document):
-    pass
+from textblob import TextBlob
 
 def tf(word, document):
-    document_tokens = get_document_tokens(document)
-    return (document_tokens.count(word) / len(document_tokens))
+    return (document.words.count(word) / len(document.words))
 
 def num_documents_containing(word, documents):
-    count = 0
-
-    for document in documents:
-        document_tokens = get_document_tokens(document)
-
-        if word in document_tokens:
-            count += 1
-
-    return count
+    return sum(1 for document in documents if word in document.words)
 
 def idf(word, documents):
     return math.log(len(documents) / (1 + num_documents_containing(word, documents)))
