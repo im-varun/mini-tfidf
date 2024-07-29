@@ -2,15 +2,55 @@ import math
 from textblob import TextBlob
 
 def tf(word, document):
+    '''
+    This is used to calculate term frequency (TF) of a word in a document.
+
+    :param word: The word for which we would like to calculate the term frequency.
+    :param document: The document with respect to which we would like to calculate the 
+    term frequency of the word.
+    
+    :return: Term Frequency (TF) of word.
+    '''
     return (document.words.count(word) / len(document.words))
 
 def num_documents_containing(word, documents):
+    '''
+    This is used to calculate the number of documents containing word.
+
+    :param word: The word to look for in documents.
+    :param documents: Documents in which to look for word.
+
+    :return: Number of documents containing word.
+    '''
     return sum(1 for document in documents if word in document.words)
 
 def idf(word, documents):
+    '''
+    This is used to calculate inverse document frequency (IDF) of a word in a collection of 
+    documents.
+
+    :param word: The word for which we would like to calculate the inverse document frequency.
+    :param documents: The collection of documents with respect to which we would like to calculate 
+    the inverse document frequency of the word.
+
+    :return: Inverse Document Frequency (IDF) of word.
+    '''
     return math.log((1 + len(documents)) / (1 + num_documents_containing(word, documents)))
 
 def tf_idf(word, document, documents):
+    '''
+    This is used to calculate term frequency - inverse document frequency (TF-IDF) of a word 
+    in a document with respect to a collection of documents.
+
+    :param word: The word for which we would like to calculate term frequency - inverse document 
+    frequency score.
+    :param document: The document used to calculate term frequency - inverse document frequency 
+    score of word.
+    :param documents: The collection of documents with respect to which we would like to calculate 
+    term frequency - inverse document frequency of word.
+
+    :return: Term Frequency - Inverse Document Frequency (TF-IDF) of word.
+    '''
     return (tf(word, document) * idf(word, documents))
 
 if __name__ == "__main__":
