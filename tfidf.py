@@ -83,8 +83,11 @@ if __name__ == "__main__":
         release of Python 2."""
     )
 
+    # create a list of documents
     documents = [document1, document2, document3]
 
+    # iterate through the documents and calculate TF-IDF score of each word in each document
+    # display the top 2 words with highest TF-IDF score for each document
     for i, document in enumerate(documents):
         print(f'Top words in document {i + 1}')
         
